@@ -1,5 +1,6 @@
 package com.ems.dao;
 import java.util.ArrayList;
+import com.ems.util.EmailUtil;
 import java.util.List;
 import java.sql.Statement;
 import java.sql.ResultSet;
@@ -32,10 +33,16 @@ public class EmployeeDAO {
 
             int row = ps.executeUpdate();
 
-            if(row > 0) {
+            if(row > 0)
+            {
                 status = true;
-            }
 
+                /*EmailUtil.sendEmail(
+                        emp.getEmail(),
+                        "Employee Record Created",
+                        "Hello " + emp.getName()
+                        + ", your employee record has been created successfully.");*/
+            }
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -139,6 +146,12 @@ public class EmployeeDAO {
             if(row > 0)
             {
                 status = true;
+
+                /*EmailUtil.sendEmail(
+                        emp.getEmail(),
+                        "Employee Record Updated",
+                        "Hello " + emp.getName()
+                        + ", your employee details have been updated.");*/
             }
         }
         catch(Exception e)

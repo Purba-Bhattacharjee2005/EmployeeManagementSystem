@@ -47,6 +47,13 @@
 
             if(status) {
                 out.println("<h3>Employee Added Successfully!</h3>");
+                
+                // --- THIS IS THE NEW EMAIL TRIGGER ---
+                String subject = "Welcome to the Company!";
+                String body = "Hello " + name + ",\n\nYour employee profile has been successfully created.\nDepartment: " + department;
+                com.ems.util.EmailUtil.sendEmail(email, subject, body);
+                // -------------------------------------
+                
             } else {
                 out.println("<h3 style='color:red;'>Failed to Add Employee!</h3>");
             }
